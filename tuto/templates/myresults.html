@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block main %}
+
+      Your Search Criteria: <br>
+      Keywords:  {{ mysearch }}<br>
+      Salary : {{ mysalary }}<br>
+      Company : {{ mycompany }}<br>
+
+      <form role="form" method="POST" action="">
+        
+          <br>
+          {% for x in mylist %}
+          <img src="static/images/{{(x.entreprise).img}}" width=75px heigth= 10px>
+          <a href="../show/offre/{{ x.id }}">
+          {{ x.title }}
+          </a>
+          /  {{ x.salary }} Euros /
+          <a href="../show/entreprise/{{ (x.entreprise).id }}">
+          {{ (x.entreprise).name }}
+          </a> <br>
+          Apply before: {{ x.dl }}
+          <br>
+          <br>
+          <br>
+          <br>
+          {% endfor %}
+      </form>
+
+{% endblock %}

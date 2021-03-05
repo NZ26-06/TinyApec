@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Delete your offre:  {{ id }}</h1>
+<form role="form" method="POST" action="{{ url_for('delete_offre', id=id) }}" >
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.title.label }} {{ form.title(size=50, class="form-control") }}
+        <br>
+        {{ form.salary.label }} {{ form.salary(size=50, class="form-control") }}
+        <br>
+    </div>
+    <input class="btn btn-default" type="submit" value="Effacer">
+</form>
+{% endblock %}

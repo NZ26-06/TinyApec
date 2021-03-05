@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Our Entreprises</h1>
+
+<br>
+<br>
+
+{% for x in mylist%}
+    <br>
+    <img src="../static/images/{{ x.img }}" width=75px heigth= 10px>
+    <a href= "{{ url_for('one_entreprise', id= x.id) }}">
+
+      {{ x.name }}</a>
+    <br>
+{% endfor %}
+{% endblock %}

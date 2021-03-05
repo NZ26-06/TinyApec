@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block main %}
+
+<form role="form" method="POST" action="{{ url_for('result') }}" >
+  {{ form.hidden_tag() }}
+    <div>
+        {{ form.mysearch.label }} {{ form.mysearch(size=50, class="form-control") }}
+        <br>
+        {{ form.salary.label }} {{ form.salary(size=50, class="form-control") }}
+        <br>
+        {{ form.choicecompany.label }} {{ form.choicecompany}}
+        <br>
+        {{ form.invert.label }} {{ form.invert }}
+        <br>
+    </div>
+    <input class="btn btn-default" type="submit" value="Enregistrer">
+</form>
+{% endblock %}

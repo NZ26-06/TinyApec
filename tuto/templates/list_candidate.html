@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Our Candidates</h1>
+
+<br>
+<br>
+
+{% for x in mylist%}
+    <br>
+      {{ x.username }} / {{ x.email }}
+    <br>
+{% endfor %}
+{% endblock %}

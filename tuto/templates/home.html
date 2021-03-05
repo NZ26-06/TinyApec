@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main %}
+<h1> {{ title }}</h1>
+<div class="sample">
+  {% for x in offres %}
+    <a href="show/offre/{{ x.id }}">
+        {{ x.title }}
+        <img src="static/images/{{(x.entreprise).img}}" width=75px heigth= 10px>
+        <br>
+        <br>
+    </a>
+    {% endfor %}
+    {{ logos }}
+</div>
+{% endblock %}

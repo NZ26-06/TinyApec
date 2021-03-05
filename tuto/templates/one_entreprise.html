@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block main %}
+<br>
+<br>
+<br>
+{% if current_user.is_authenticated %}
+{% if bol %}
+<a href="{{ url_for('edit_entreprise', id= entreprise.id) }}">Edit</a>
+<a href="{{ url_for('create_entreprise') }}">Create</a>
+{% endif %}
+{% endif %}
+
+<h1> Your Company </h1>
+<br>
+<img src="{{ url_for('static' , filename='images/'+entreprise.img) }}" width=175px heigth= 20px>
+<br>
+{{ form.name.label }} {{ form.name(size=50, class="form-control")}}
+<form role="form" method="POST" action="">
+  {{ form.hidden_tag() }}
+    <br>
+    {% for x in offres %}
+    <a href= "{{ url_for('show_offre', id= x.id) }}">{{ x.title }}</a>
+    <br>
+    {% endfor %}
+</form>
+{% endblock %}

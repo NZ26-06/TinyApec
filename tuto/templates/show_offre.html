@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block main %}
+
+{% if current_user.is_authenticated %}
+{% if bol %}
+<a href="{{ url_for('edit_offre', id= offre.id) }}">Edit</a>
+<a href="{{ url_for('delete_offre', id= offre.id) }}">Delete</a>
+{% endif %}
+{% endif %}
+
+<h1>Your Offre </h1>
+<br>
+<form role="form" method="POST" action=action="">
+    {{ form.hidden_tag() }}
+    <div class=
+        {% if form.title.errors %}
+        "form-group has-error"
+        {% else %}
+        "form-group"
+        {%endif %}
+        >
+        <img src="{{ url_for('static' , filename='images/'+image) }}" width=350px heigth= 40px>
+        <br>
+        {{ form.title.label }} {{ form.title(size=50, class="form-control") }}
+        <br>
+        {{ form.salary.label }} {{ form.salary(size=50, class="form-control") }}
+        <br>
+        Catégorie:
+        <br>
+        <br>{{ choicename }}
+        <br>
+        <br>
+        {{ form.date_c.label }} {{ form.date_c(class="form-control") }}
+        <br>
+        {{ form.date_l.label }} {{ form.date_l(class="form-control") }}
+        <br>
+        {{ form.contact.label }} {{ form.contact(size=50, class="form-control") }}
+        <br>
+        {{ form.description.label }} {{ form.description(cols="20", rows="5", class="form-control") }}
+        <br>
+    </div>
+    {% if form.title.errors %}
+    <ul class="list-group">
+        {% for e in form.title.errors %}
+        <li class="list-group-item list-group-item-danger">{{ e }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+</form>
+
+{% endblock %}

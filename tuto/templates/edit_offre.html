@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Modify your offre: </h1>
+<form role="form" method="POST" action="" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div>
+        <img src="{{ url_for('static' , filename='images/'+image) }}" width=350px heigth= 40px>
+        <br>
+        {{ form.title.label }} {{ form.title(size=50, class="form-control") }}
+        <br>
+        {{ form.salary.label }} {{ form.salary(size=50, class="form-control") }}
+        <br>
+        {{ form.choicename.label }} {{ form.choicename(class="form-control") }}
+        <br>
+        {{ form.date_c.label }} {{ form.date_c(class="form-control") }}
+        <br>
+        {{ form.date_l.label }} {{ form.date_l(class="form-control") }}
+        <br>
+        {{ form.contact.label }} {{ form.contact(size=50, class="form-control") }}
+        <br>
+        {{ form.description.label }} {{ form.description(cols="20", rows="5", class="form-control") }}
+        <br>
+    </div>
+    <input class="btn btn-default" type="submit" value="Enregistrer">
+</form>
+{% endblock %}

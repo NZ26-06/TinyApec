@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Create your Entreprise profile</h1>
+<form role="form" method="POST" enctype="multipart/form-data" action="{{ url_for('create_entreprise') }}">
+    {{ form.hidden_tag() }}
+    <div class=
+        {% if form.name.errors %}
+        "form-group has-error"
+        {% else %}
+        "form-group"
+        {%endif %}
+        >
+        {{ form.name.label }} {{ form.name(size=50, class="form-control") }}
+        <br>
+        {{ form.contact.label }}
+        <br>
+        {{ form.contact }}
+        <br>
+        {{ form.file.label }}
+        <br>
+        {{ form.file }}
+        <br>
+    </div>
+    {% if form.name.errors %}
+    <ul class="list-group">
+        {% for e in form.name.errors %}
+        <li class="list-group-item list-group-item-danger">{{ e }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <input class="btn btn-default" type="submit" value="Enregistrer">
+</form>
+{% endblock %}

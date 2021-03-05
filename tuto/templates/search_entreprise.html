@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Delete ALL company data</h1>
+<form role="form" method="POST" action="{{ url_for('delete_data_entreprise') }}" >
+  {{ form.hidden_tag() }}
+    <div>
+        <br>
+        <br>
+        <br>
+        {{ form.choicecompany.label }} {{ form.choicecompany}}
+        <br>
+        <br>
+        <br>
+    </div>
+    <h4>DATA THAT WILL BE DELETED:
+    <ul>
+        <li>COMPANY PROFILE</li>
+        <li>ALL Company JOB OFFERS</li>
+        <li>Associated USER Belongings to COMPANY</li>
+        </h4>
+    </ul>
+    <input class="btn btn-default" type="submit" value="Delete">
+</form>
+{% endblock %}
